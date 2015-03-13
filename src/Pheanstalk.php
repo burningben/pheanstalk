@@ -1,6 +1,7 @@
 <?php
 
 namespace Pheanstalk;
+require_once '_autoload.php';
 
 /**
  * Pheanstalk is a PHP client for the beanstalkd workqueue.
@@ -161,6 +162,14 @@ class Pheanstalk implements PheanstalkInterface
         $this->pauseTube($tube, 0);
 
         return $this;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function clearTube($tube)
+    {
+        $this->_dispatch(new Command\ClearTubeCommand($tube));
     }
 
     /**

@@ -120,6 +120,14 @@ interface PheanstalkInterface
     public function resumeTube($tube);
 
     /**
+     * Clear all jobs of the given tube.
+     *
+     * @param string $tube  The tube to clear
+     * @chainable
+     */
+    public function clearTube($tube);
+
+    /**
      * Inspect a job in the system, regardless of what tube it is in.
      *
      * @param  int    $jobId
